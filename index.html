@@ -3,184 +3,282 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MyAirportMap | Your Logbook, Visualized</title>
+  <title>MyAirportMap | Your Logbook Story</title>
   <style>
     :root {
       --bravo-blue: #005589;
       --magenta: #E20074;
       --white: #ffffff;
-      --text: #1a1a1a;
-      --light-gray: #f4f7f9;
+      --text-main: #0b1220;
+      --text-muted: #555e6d;
+      --bg-soft: #f8fafc;
     }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--white);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* Layout */
-    .container {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: row;
-    }
-
-    /* Left Side: Content */
-    .content-side {
-      flex: 1;
-      padding: 60px;
+      color: var(--text-main);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      max-width: 600px;
+      min-height: 100vh;
     }
 
-    /* Right Side: Rotating Library */
-    .image-side {
+    /* Main Hero Section */
+    .hero-container {
       flex: 1;
-      background-color: var(--light-gray);
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* Left Side: The Window */
+    .window-side {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-window {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 3/4;
+      background: #fff;
+      border-radius: 30px;
+      border: 10px solid var(--bravo-blue);
+      box-shadow: 0 30px 60px rgba(0, 85, 137, 0.12);
       position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .gallery-img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      position: absolute;
-      transition: opacity 1s ease-in-out;
+      transition: opacity 1.2s ease-in-out;
     }
 
-    /* Branding */
-    .logo-row {
+    /* Right Side: Content & Pricing */
+    .content-side {
+      flex: 1.2;
+    }
+
+    .brand-header {
       display: flex;
       align-items: center;
-      gap: 15px;
-      margin-bottom: 40px;
+      gap: 12px;
+      margin-bottom: 32px;
+      text-decoration: none;
     }
 
-    .logo-img {
-      height: 50px;
-    }
+    .brand-logo { height: 42px; width: auto; }
 
     .brand-name {
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: var(--bravo-blue);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
     }
 
-    /* Typography */
     h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       line-height: 1.1;
       color: var(--bravo-blue);
-      margin: 0 0 24px 0;
+      margin: 0 0 20px 0;
       font-weight: 800;
+      letter-spacing: -0.03em;
     }
 
     .lead {
-      font-size: 1.25rem;
-      color: #555;
-      margin-bottom: 40px;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
       max-width: 480px;
     }
 
-    /* Actions */
-    .cta-group {
+    /* Pricing Section */
+    .pricing-box {
+      background: var(--bg-soft);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      display: inline-flex;
+      flex-direction: column;
+      border-left: 4px solid var(--magenta);
+    }
+
+    .price-main {
+      font-weight: 700;
+      color: var(--bravo-blue);
+      font-size: 1.1rem;
+    }
+
+    .price-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Button Layout */
+    .cta-row {
       display: flex;
-      gap: 15px;
-      margin-bottom: 60px;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      padding: 14px 28px;
-      border-radius: 8px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
       text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.2s;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      text-align: center;
     }
-
-    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary { background: var(--bravo-blue); color: white; }
-    .btn-secondary { border: 2px solid var(--magenta); color: var(--magenta); }
+    .btn-install { background: var(--magenta); color: white; }
+    .btn-outline { border: 2px solid var(--bravo-blue); color: var(--bravo-blue); }
 
-    /* Features */
-    .features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      border-top: 1px solid #eee;
-      padding-top: 40px;
+    .btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
     }
 
-    .feat-item strong { color: var(--bravo-blue); display: block; }
-    .feat-item span { font-size: 0.9rem; color: #777; }
+    /* Footer Styles */
+    .footer {
+      background-color: var(--bg-soft);
+      padding: 40px 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-brand {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .subsidiary {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--bravo-blue);
+      margin-bottom: 8px;
+    }
+
+    .footer-muted {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .footer-contact {
+      flex: 1;
+      min-width: 250px;
+      text-align: right;
+    }
+
+    .contact-email {
+      display: block;
+      color: var(--magenta);
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
 
     @media (max-width: 900px) {
-      .container { flex-direction: column; }
-      .image-side { height: 300px; order: -1; }
-      .content-side { padding: 40px 20px; max-width: 100%; }
-      h1 { font-size: 2.5rem; }
+      .hero-container { flex-direction: column; padding: 40px 20px; text-align: center; }
+      .window-side { order: 2; width: 100%; }
+      .brand-header { justify-content: center; }
+      .cta-row { justify-content: center; }
+      .image-window { max-width: 300px; margin: 0 auto; }
+      h1 { font-size: 2.2rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-contact { text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <main class="content-side">
-      <div class="logo-row">
-        <img src="WhiteBackground.jpg" alt="MyAirportMap Logo" class="logo-img">
-        <span class="brand-name">MyAirportMap</span>
+  <div class="hero-container">
+    <aside class="window-side">
+      <div class="image-window" id="gallery">
+        <img src="/assets/gallery-1.jpg" class="gallery-img" style="opacity:1">
+        <img src="/assets/gallery-2.jpg" class="gallery-img" style="opacity:0">
+        <img src="/assets/gallery-3.jpg" class="gallery-img" style="opacity:0">
       </div>
+    </aside>
 
-      <h1>Your logbook is an amazing story. Let us tell it.</h1>
+    <main class="content-side">
+      <a href="/" class="brand-header">
+        <img src="/assets/brandmark.png" alt="MyAirportMap" class="brand-logo">
+        <span class="brand-name">MyAirportMap</span>
+      </a>
+
+      <h1>Your logbook is an amazing story, let MyAirportMap tell it.</h1>
       
       <p class="lead">
-        Import your ForeFlight CSV to explore visited airports and unlock collectible achievements. 
-        Private by default—share only what you choose.
+        Import your ForeFlight CSV to explore visited airports and unlock collectible progress.
       </p>
 
-      <div class="cta-group">
-        <a href="https://app.myairportmap.com/app" class="btn btn-primary">Open the App</a>
-        <a href="https://app.myairportmap.com/sign-in" class="btn btn-secondary">Log In</a>
+      <div class="pricing-box">
+        <span class="price-main">$12 for your first year.</span>
+        <span class="price-sub">$22 each year after.</span>
       </div>
 
-      <div class="features">
-        <div class="feat-item">
-          <strong>Collectible Progress</strong>
-          <span>Badges and runway numbers.</span>
-        </div>
-        <div class="feat-item">
-          <strong>PWA Installable</strong>
-          <span>Add to your home screen in seconds.</span>
-        </div>
+      <div class="cta-row">
+        <a href="https://app.myairportmap.com/app" class="btn btn-primary">Open App</a>
+        <a href="/open/" class="btn btn-install">Phone Install</a>
+        <a href="https://app.myairportmap.com/sign-up" class="btn btn-outline">Sign Up</a>
       </div>
     </main>
-
-    <aside class="image-side" id="gallery">
-      <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=1200" class="gallery-img" style="opacity:1">
-      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&w=1200" class="gallery-img" style="opacity:0">
-      <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?auto=format&fit=crop&w=1200" class="gallery-img" style="opacity:0">
-    </aside>
   </div>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="subsidiary">Wholly owned subsidiary of Blue Nexus, LLC.</div>
+        <div class="footer-muted">
+          © 2026 MyAirportMap. All rights reserved.<br>
+          Private by default. Share only what you choose.
+        </div>
+      </div>
+      
+      <div class="footer-contact">
+        <a href="mailto:contact@bluenexus.us" class="contact-email">contact@bluenexus.us</a>
+        <div class="footer-muted">
+          For support or Alpha access, include device and browser details.
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    // Simple rotation logic for the right-side library
     const images = document.querySelectorAll('.gallery-img');
     let current = 0;
-    setInterval(() => {
-      images[current].style.opacity = 0;
-      current = (current + 1) % images.length;
-      images[current].style.opacity = 1;
-    }, 5000);
+    if(images.length > 1) {
+      setInterval(() => {
+        images[current].style.opacity = 0;
+        current = (current + 1) % images.length;
+        images[current].style.opacity = 1;
+      }, 5000);
+    }
   </script>
 </body>
 </html>
