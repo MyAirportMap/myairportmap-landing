@@ -5,93 +5,150 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b1220" />
   <title>MyAirportMap</title>
+  <meta name="description" content="Turn your logbook into a living map. Private by default. Share what you choose." />
 
-  <link rel="preload" href="/assets/site.css" as="style" />
   <link rel="stylesheet" href="/assets/site.css" />
 </head>
 <body>
   <main class="wrap">
-    <header class="top">
-      <div class="brand">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <a class="brand" href="/">
         <img class="brandmark" src="/assets/brandmark.png" alt="MyAirportMap" />
         <div class="brandtext">
           <div class="brandname">MyAirportMap</div>
-          <div class="tagline">Private by default. Share what you choose.</div>
+          <div class="brandtag">Private by default. Share what you choose.</div>
         </div>
-      </div>
+      </a>
 
-      <nav class="toplinks">
-        <a class="link" href="/open/">Open</a>
-        <a class="link" href="https://app.myairportmap.com/sign-in">Log In</a>
+      <nav class="nav">
+        <a class="navlink" href="/open/">Open / Install</a>
+        <a class="navlink" href="https://app.myairportmap.com/sign-in">Log In</a>
       </nav>
     </header>
 
+    <!-- Hero -->
     <section class="hero">
-      <h1>Turn your logbook into a living map.</h1>
-      <p class="subtext">Your flight history—mapped, shared, and collectible.</p>
+      <div class="heroCopy">
+        <h1>Turn your logbook into a living map.</h1>
+        <p class="lead">
+          Import your ForeFlight CSV and watch your flight history light up—then share only what you choose.
+        </p>
 
-      <div class="ctaRow">
-        <a class="btn primary" href="https://app.myairportmap.com/app">Open the App</a>
-        <a class="btn" href="https://app.myairportmap.com/sign-in">Log In</a>
-        <a class="btn ghost" href="https://app.myairportmap.com/sign-up">Sign Up</a>
+        <div class="ctaRow">
+          <a class="btn primary" href="https://app.myairportmap.com/app">Open the App</a>
+          <a class="btn" href="https://app.myairportmap.com/sign-in">Log In</a>
+          <a class="btn ghost" href="https://app.myairportmap.com/sign-up">Sign Up</a>
+        </div>
+
+        <div class="micro">
+          Works great as a phone “app icon” via install. No App Store required.
+        </div>
+
+        <div class="trustRow">
+          <div class="pill">✅ Private by default</div>
+          <div class="pill">✅ Fast repeat loads</div>
+          <div class="pill">✅ Achievements included</div>
+        </div>
       </div>
 
-      <div class="note">
-        Tip: On your phone, use <strong>Install</strong> for an app icon + full-screen experience.
+      <!-- Visual mock card (no screenshots yet, but looks intentional) -->
+      <div class="heroMock">
+        <div class="mockCard">
+          <div class="mockHeader">
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            <div class="mockTitle">MyAirportMap</div>
+          </div>
+          <div class="mockBody">
+            <div class="mockMap"></div>
+            <div class="mockStats">
+              <div class="stat">
+                <div class="statNum">—</div>
+                <div class="statLabel">Airports</div>
+              </div>
+              <div class="stat">
+                <div class="statNum">—</div>
+                <div class="statLabel">States</div>
+              </div>
+              <div class="stat">
+                <div class="statNum">—</div>
+                <div class="statLabel">Runways</div>
+              </div>
+            </div>
+            <div class="mockHint">Upload your ForeFlight CSV → Explore your map → Earn achievements</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="grid">
-      <article class="card">
-        <h2>Install on iPhone</h2>
-        <ol>
-          <li>Open <strong>myairportmap.com/open</strong> in Safari</li>
-          <li>Tap <strong>Share</strong> (square with arrow)</li>
-          <li>Tap <strong>Add to Home Screen</strong></li>
-          <li>Launch from your new icon</li>
-        </ol>
-      </article>
+    <!-- Feature strip -->
+    <section class="features">
+      <div class="fcard">
+        <h2>Import in minutes</h2>
+        <p>Upload your ForeFlight CSV and get a clean logbook view plus a map-ready dataset.</p>
+      </div>
+      <div class="fcard">
+        <h2>Share what you choose</h2>
+        <p>Keep it private by default. Share a public view only when you want to.</p>
+      </div>
+      <div class="fcard">
+        <h2>Collect achievements</h2>
+        <p>Runway numbers, state badges, milestones—built to be fun and motivating.</p>
+      </div>
+    </section>
 
-      <article class="card">
-        <h2>Install on Android</h2>
-        <ol>
-          <li>Open <strong>myairportmap.com/open</strong> in Chrome</li>
-          <li>Tap the <strong>⋮</strong> menu</li>
-          <li>Tap <strong>Install app</strong> or <strong>Add to Home screen</strong></li>
-          <li>Launch from your new icon</li>
-        </ol>
-      </article>
+    <!-- Install -->
+    <section class="install">
+      <div class="sectionHead">
+        <h2>Install as an app</h2>
+        <p>Get an icon on your phone and launch full-screen—no App Store needed.</p>
+      </div>
 
-      <article class="card">
-        <h2>Quick bridge</h2>
-        <p>Scan this QR to open the mobile bridge page:</p>
-        <div class="qrBox">
-          <img id="qrImg" alt="QR code to /open" />
+      <div class="installGrid">
+        <div class="icard">
+          <h3>iPhone</h3>
+          <ol>
+            <li>Open <strong>myairportmap.com/open</strong> in Safari</li>
+            <li>Tap <strong>Share</strong></li>
+            <li>Tap <strong>Add to Home Screen</strong></li>
+          </ol>
+          <a class="btn small" href="/open/">Open install page</a>
         </div>
-        <div class="small">
-          Points to: <code>https://myairportmap.com/open</code>
+
+        <div class="icard">
+          <h3>Android</h3>
+          <ol>
+            <li>Open <strong>myairportmap.com/open</strong> in Chrome</li>
+            <li>Tap <strong>⋮</strong></li>
+            <li>Tap <strong>Install app</strong> / <strong>Add to Home screen</strong></li>
+          </ol>
+          <a class="btn small" href="/open/">Open install page</a>
         </div>
-      </article>
+
+        <div class="icard">
+          <h3>Desktop → Phone</h3>
+          <p>Use the install bridge page on your phone:</p>
+          <div class="linkbox">
+            <code>https://myairportmap.com/open</code>
+          </div>
+          <a class="btn small" href="/open/">Open /open</a>
+        </div>
+      </div>
     </section>
 
     <footer class="footer">
-      <span class="small">© MyAirportMap</span>
-      <span class="small">•</span>
-      <a class="small link" href="/open/">Open / Install</a>
+      <div class="footLeft">
+        <div class="footBrand">MyAirportMap</div>
+        <div class="footNote">Private by default. Share what you choose.</div>
+      </div>
+      <div class="footRight">
+        <a class="footLink" href="https://app.myairportmap.com/app">Open App</a>
+        <a class="footLink" href="https://app.myairportmap.com/sign-in">Log In</a>
+        <a class="footLink" href="/open/">Install</a>
+      </div>
     </footer>
-  </main>
 
-  <script>
-    // Zero-dependency QR via a tiny inline generator (simple SVG URL)
-    // This is intentionally “good enough” for v1.
-    (function () {
-      const url = "https://myairportmap.com/open";
-      // Uses a free QR image endpoint? (Avoid.)
-      // Instead: embed a minimal QR via a tiny JS lib, but we’re keeping v1 dead simple.
-      // If you want true offline QR generation, I’ll swap this to an inline QR encoder.
-      const img = document.getElementById("qrImg");
-      img.src = "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" + encodeURIComponent(url);
-    })();
-  </script>
+  </main>
 </body>
 </html>
