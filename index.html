@@ -6,149 +6,160 @@
   <meta name="theme-color" content="#0b1220" />
   <title>MyAirportMap</title>
   <meta name="description" content="Turn your logbook into a living map. Private by default. Share what you choose." />
-
   <link rel="stylesheet" href="/assets/site.css" />
 </head>
+
 <body>
-  <main class="wrap">
+  <div class="page">
 
-    <!-- Top bar -->
-    <header class="topbar">
-      <a class="brand" href="/">
-        <img class="brandmark" src="/assets/brandmark.png" alt="MyAirportMap" />
-        <div class="brandtext">
-          <div class="brandname">MyAirportMap</div>
-          <div class="brandtag">Private by default. Share what you choose.</div>
-        </div>
-      </a>
+    <!-- Header -->
+    <header class="hdr">
+      <div class="hdrInner">
+        <a class="brand" href="/">
+          <img class="brandmark" src="/assets/brandmark.png" alt="MyAirportMap" />
+          <div class="brandText">
+            <div class="brandName">MyAirportMap</div>
+            <div class="brandTag">Private by default. Share what you choose.</div>
+          </div>
+        </a>
 
-      <nav class="nav">
-        <a class="navlink" href="/open/">Open / Install</a>
-        <a class="navlink" href="https://app.myairportmap.com/sign-in">Log In</a>
-      </nav>
+        <nav class="nav">
+          <a class="navLink" href="https://app.myairportmap.com/app">Open App</a>
+          <a class="navLink" href="#install">Install Instructions</a>
+          <a class="navLink" href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="heroCopy">
-        <h1>Turn your logbook into a living map.</h1>
-        <p class="lead">
-          Import your ForeFlight CSV and watch your flight history light up—then share only what you choose.
-        </p>
+    <!-- Main -->
+    <main class="wrap">
 
-        <div class="ctaRow">
-          <a class="btn primary" href="https://app.myairportmap.com/app">Open the App</a>
-          <a class="btn" href="https://app.myairportmap.com/sign-in">Log In</a>
-          <a class="btn ghost" href="https://app.myairportmap.com/sign-up">Sign Up</a>
-        </div>
+      <section class="panel">
+        <div class="cols">
 
-        <div class="micro">
-          Works great as a phone “app icon” via install. No App Store required.
-        </div>
+          <!-- Left column -->
+          <div class="colLeft">
+            <div class="kicker">Bravo-ready • PWA installable</div>
 
-        <div class="trustRow">
-          <div class="pill">✅ Private by default</div>
-          <div class="pill">✅ Fast repeat loads</div>
-          <div class="pill">✅ Achievements included</div>
-        </div>
-      </div>
+            <h1 class="h1">Turn your logbook into a living map.</h1>
 
-      <!-- Visual mock card (no screenshots yet, but looks intentional) -->
-      <div class="heroMock">
-        <div class="mockCard">
-          <div class="mockHeader">
-            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-            <div class="mockTitle">MyAirportMap</div>
-          </div>
-          <div class="mockBody">
-            <div class="mockMap"></div>
-            <div class="mockStats">
-              <div class="stat">
-                <div class="statNum">—</div>
-                <div class="statLabel">Airports</div>
+            <p class="lead">
+              Import your ForeFlight CSV, explore your visited airports, and unlock achievements.
+              Keep it private by default—share only what you choose.
+            </p>
+
+            <div class="ctaRow">
+              <a class="btn primary" href="https://app.myairportmap.com/app">Open the App</a>
+              <a class="btn" href="https://app.myairportmap.com/sign-in">Log In</a>
+              <a class="btn ghost" href="https://app.myairportmap.com/sign-up">Sign Up</a>
+            </div>
+
+            <div class="miniGrid">
+              <div class="miniCard">
+                <div class="miniTitle">Fast repeat loads</div>
+                <div class="miniText">Built for quick “check it again” sessions.</div>
               </div>
-              <div class="stat">
-                <div class="statNum">—</div>
-                <div class="statLabel">States</div>
+              <div class="miniCard">
+                <div class="miniTitle">Private by default</div>
+                <div class="miniText">Public views are optional and intentional.</div>
               </div>
-              <div class="stat">
-                <div class="statNum">—</div>
-                <div class="statLabel">Runways</div>
+              <div class="miniCard">
+                <div class="miniTitle">Collectible progress</div>
+                <div class="miniText">Badges + runway numbers—fun, not fluff.</div>
               </div>
             </div>
-            <div class="mockHint">Upload your ForeFlight CSV → Explore your map → Earn achievements</div>
+
+            <div class="divider"></div>
+
+            <div class="fineprint">
+              Already on your phone? Visit <a class="inlineLink" href="/open/">myairportmap.com/open</a>
+              to install as an app icon.
+            </div>
           </div>
+
+          <!-- Right column -->
+          <aside class="colRight" id="install">
+            <div class="card">
+              <div class="cardTop">
+                <div class="cardTitle">Install as an App</div>
+                <div class="chip">No App Store</div>
+              </div>
+              <div class="cardBody">
+                <p class="cardLead">
+                  Install once, then launch full-screen from your home screen.
+                </p>
+
+                <div class="installCards">
+                  <div class="installCard">
+                    <div class="installTitle">iPhone (Safari)</div>
+                    <ol class="steps">
+                      <li>Open <strong>myairportmap.com/open</strong></li>
+                      <li>Tap <strong>Share</strong></li>
+                      <li>Tap <strong>Add to Home Screen</strong></li>
+                    </ol>
+                    <a class="btn small" href="/open/">Open Install Page</a>
+                  </div>
+
+                  <div class="installCard">
+                    <div class="installTitle">Android (Chrome)</div>
+                    <ol class="steps">
+                      <li>Open <strong>myairportmap.com/open</strong></li>
+                      <li>Tap the <strong>⋮</strong> menu</li>
+                      <li>Tap <strong>Install app</strong> / <strong>Add to Home screen</strong></li>
+                    </ol>
+                    <a class="btn small" href="/open/">Open Install Page</a>
+                  </div>
+                </div>
+
+                <div class="quickLinks">
+                  <a class="qLink" href="https://app.myairportmap.com/app">Open App</a>
+                  <a class="qLink" href="https://app.myairportmap.com/sign-in">Log In</a>
+                  <a class="qLink" href="https://app.myairportmap.com/sign-up">Sign Up</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card subtle">
+              <div class="cardTitle">What you’ll do first</div>
+              <ul class="bullets">
+                <li>Sign in / sign up</li>
+                <li>Upload your ForeFlight CSV</li>
+                <li>Explore your map + achievements</li>
+              </ul>
+            </div>
+          </aside>
+
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Feature strip -->
-    <section class="features">
-      <div class="fcard">
-        <h2>Import in minutes</h2>
-        <p>Upload your ForeFlight CSV and get a clean logbook view plus a map-ready dataset.</p>
-      </div>
-      <div class="fcard">
-        <h2>Share what you choose</h2>
-        <p>Keep it private by default. Share a public view only when you want to.</p>
-      </div>
-      <div class="fcard">
-        <h2>Collect achievements</h2>
-        <p>Runway numbers, state badges, milestones—built to be fun and motivating.</p>
-      </div>
-    </section>
-
-    <!-- Install -->
-    <section class="install">
-      <div class="sectionHead">
-        <h2>Install as an app</h2>
-        <p>Get an icon on your phone and launch full-screen—no App Store needed.</p>
-      </div>
-
-      <div class="installGrid">
-        <div class="icard">
-          <h3>iPhone</h3>
-          <ol>
-            <li>Open <strong>myairportmap.com/open</strong> in Safari</li>
-            <li>Tap <strong>Share</strong></li>
-            <li>Tap <strong>Add to Home Screen</strong></li>
-          </ol>
-          <a class="btn small" href="/open/">Open install page</a>
+      <!-- Contact -->
+      <section class="contact" id="contact">
+        <div class="contactInner">
+          <h2 class="h2">Contact</h2>
+          <p class="muted">
+            For Alpha access, feedback, or issues, email:
+            <span class="mono">support@myairportmap.com</span>
+          </p>
+          <p class="muted small">
+            Include screenshots + what you expected + what happened + device/browser.
+          </p>
         </div>
+      </section>
 
-        <div class="icard">
-          <h3>Android</h3>
-          <ol>
-            <li>Open <strong>myairportmap.com/open</strong> in Chrome</li>
-            <li>Tap <strong>⋮</strong></li>
-            <li>Tap <strong>Install app</strong> / <strong>Add to Home screen</strong></li>
-          </ol>
-          <a class="btn small" href="/open/">Open install page</a>
+      <!-- Footer -->
+      <footer class="ftr">
+        <div class="ftrLeft">
+          <div class="ftrBrand">MyAirportMap</div>
+          <div class="ftrNote">© 2026 • Private by default • Share what you choose</div>
         </div>
-
-        <div class="icard">
-          <h3>Desktop → Phone</h3>
-          <p>Use the install bridge page on your phone:</p>
-          <div class="linkbox">
-            <code>https://myairportmap.com/open</code>
-          </div>
-          <a class="btn small" href="/open/">Open /open</a>
+        <div class="ftrRight">
+          <a class="ftrLink" href="https://app.myairportmap.com/app">Open App</a>
+          <a class="ftrLink" href="/open/">Install</a>
+          <a class="ftrLink" href="#contact">Contact</a>
         </div>
-      </div>
-    </section>
+      </footer>
 
-    <footer class="footer">
-      <div class="footLeft">
-        <div class="footBrand">MyAirportMap</div>
-        <div class="footNote">Private by default. Share what you choose.</div>
-      </div>
-      <div class="footRight">
-        <a class="footLink" href="https://app.myairportmap.com/app">Open App</a>
-        <a class="footLink" href="https://app.myairportmap.com/sign-in">Log In</a>
-        <a class="footLink" href="/open/">Install</a>
-      </div>
-    </footer>
-
-  </main>
+    </main>
+  </div>
 </body>
 </html>
