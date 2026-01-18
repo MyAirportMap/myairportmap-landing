@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyAirportMap | Your Logbook, Visualized</title>
+  <style>
+    :root {
+      --bravo-blue: #005589;
+      --magenta: #E20074;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --light-gray: #f4f7f9;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    .container {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: row;
+    }
+
+    /* Left Side: Content */
+    .content-side {
+      flex: 1;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 600px;
+    }
+
+    /* Right Side: Rotating Library */
+    .image-side {
+      flex: 1;
+      background-color: var(--light-gray);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* Branding */
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .logo-img {
+      height: 50px;
+    }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--bravo-blue);
+      letter-spacing: -0.02em;
+    }
+
+    /* Typography */
+    h1 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      color: var(--bravo-blue);
+      margin: 0 0 24px 0;
+      font-weight: 800;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      color: #555;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    /* Actions */
+    .cta-group {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 60px;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary { background: var(--bravo-blue); color: white; }
+    .btn-secondary { border: 2px solid var(--magenta); color: var(--magenta); }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      border-top: 1px solid #eee;
+      padding-top: 40px;
+    }
+
+    .feat-item strong { color: var(--bravo-blue); display: block; }
+    .feat-item span { font-size: 0.9rem; color: #777; }
+
+    @media (max-width: 900px) {
+      .container { flex-direction: column; }
+      .image-side { height: 300px; order: -1; }
+      .content-side { padding: 40px 20px; max-width: 100%; }
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <main class="content-side">
+      <div class="logo-row">
+        <img src="WhiteBackground.jpg" alt="MyAirportMap Logo" class="logo-img">
+        <span class="brand-name">MyAirportMap</span>
+      </div>
+
+      <h1>Your logbook is an amazing story. Let us tell it.</h1>
+      
+      <p class="lead">
+        Import your ForeFlight CSV to explore visited airports and unlock collectible achievements. 
+        Private by default—share only what you choose.
+      </p>
+
+      <div class="cta-group">
+        <a href="https://app.myairportmap.com/app" class="btn btn-primary">Open the App</a>
+        <a href="https://app.myairportmap.com/sign-in" class="btn btn-secondary">Log In</a>
+      </div>
+
+      <div class="features">
+        <div class="feat-item">
+          <strong>Collectible Progress</strong>
+          <span>Badges and runway numbers.</span>
+        </div>
+        <div class="feat-item">
+          <strong>PWA Installable</strong>
+          <span>Add to your home screen in seconds.</span>
+        </div>
+      </div>
+    </main>
+
+    <aside class="image-side" id="gallery">
+      <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=1200" class="gallery-img" style="opacity:1">
+      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&w=1200" class="gallery-img" style="opacity:0">
+      <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?auto=format&fit=crop&w=1200" class="gallery-img" style="opacity:0">
+    </aside>
+  </div>
+
+  <script>
+    // Simple rotation logic for the right-side library
+    const images = document.querySelectorAll('.gallery-img');
+    let current = 0;
+    setInterval(() => {
+      images[current].style.opacity = 0;
+      current = (current + 1) % images.length;
+      images[current].style.opacity = 1;
+    }, 5000);
+  </script>
+</body>
+</html>
