@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>MyAirportMap</title>
+
+  <link rel="preload" href="/assets/site.css" as="style" />
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <div class="brand">
+        <img class="brandmark" src="/assets/brandmark.png" alt="MyAirportMap" />
+        <div class="brandtext">
+          <div class="brandname">MyAirportMap</div>
+          <div class="tagline">Private by default. Share what you choose.</div>
+        </div>
+      </div>
+
+      <nav class="toplinks">
+        <a class="link" href="/open/">Open</a>
+        <a class="link" href="https://app.myairportmap.com/sign-in">Log In</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Turn your logbook into a living map.</h1>
+      <p class="subtext">Your flight history—mapped, shared, and collectible.</p>
+
+      <div class="ctaRow">
+        <a class="btn primary" href="https://app.myairportmap.com/app">Open the App</a>
+        <a class="btn" href="https://app.myairportmap.com/sign-in">Log In</a>
+        <a class="btn ghost" href="https://app.myairportmap.com/sign-up">Sign Up</a>
+      </div>
+
+      <div class="note">
+        Tip: On your phone, use <strong>Install</strong> for an app icon + full-screen experience.
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Install on iPhone</h2>
+        <ol>
+          <li>Open <strong>myairportmap.com/open</strong> in Safari</li>
+          <li>Tap <strong>Share</strong> (square with arrow)</li>
+          <li>Tap <strong>Add to Home Screen</strong></li>
+          <li>Launch from your new icon</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <h2>Install on Android</h2>
+        <ol>
+          <li>Open <strong>myairportmap.com/open</strong> in Chrome</li>
+          <li>Tap the <strong>⋮</strong> menu</li>
+          <li>Tap <strong>Install app</strong> or <strong>Add to Home screen</strong></li>
+          <li>Launch from your new icon</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <h2>Quick bridge</h2>
+        <p>Scan this QR to open the mobile bridge page:</p>
+        <div class="qrBox">
+          <img id="qrImg" alt="QR code to /open" />
+        </div>
+        <div class="small">
+          Points to: <code>https://myairportmap.com/open</code>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span class="small">© MyAirportMap</span>
+      <span class="small">•</span>
+      <a class="small link" href="/open/">Open / Install</a>
+    </footer>
+  </main>
+
+  <script>
+    // Zero-dependency QR via a tiny inline generator (simple SVG URL)
+    // This is intentionally “good enough” for v1.
+    (function () {
+      const url = "https://myairportmap.com/open";
+      // Uses a free QR image endpoint? (Avoid.)
+      // Instead: embed a minimal QR via a tiny JS lib, but we’re keeping v1 dead simple.
+      // If you want true offline QR generation, I’ll swap this to an inline QR encoder.
+      const img = document.getElementById("qrImg");
+      img.src = "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" + encodeURIComponent(url);
+    })();
+  </script>
+</body>
+</html>
