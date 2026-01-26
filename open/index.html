@@ -3,107 +3,297 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b1220" />
-  <title>Open • MyAirportMap</title>
-  <link rel="stylesheet" href="/assets/site.css" />
+  <title>Install MyAirportMap | Your Logbook Story</title>
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#005589">
+
   <style>
-    .center{max-width:720px;margin:0 auto}
-    .stack{display:flex;flex-direction:column;gap:12px}
-    .pill{padding:12px 14px;border-radius:18px;border:1px solid var(--stroke);background:rgba(255,255,255,.04)}
-    .pill h2{margin:0 0 6px;font-size:16px}
-    .pill p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
-    .qrOnly{display:none}
+    :root {
+      --bravo-blue: #005589;
+      --magenta: #E20074;
+      --white: #ffffff;
+      --text-main: #0b1220;
+      --text-muted: #555e6d;
+      --bg-soft: #f8fafc;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--white);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Main Container */
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      gap: 60px;
+      align-items: flex-start;
+      flex: 1;
+      box-sizing: border-box;
+    }
+
+    .content-side { flex: 1.2; }
+
+    .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      text-decoration: none;
+    }
+
+    .brand-logo { height: 60px; width: auto; }
+    .brand-name { font-weight: 800; font-size: 1.3rem; color: var(--bravo-blue); }
+
+    h1 {
+      font-size: 3rem;
+      line-height: 1.1;
+      color: var(--bravo-blue);
+      margin: 0 0 14px 0;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .instruction-group {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* ENCOMPASSING CARD STYLE */
+    .card {
+      background: var(--bg-soft);
+      padding: 30px;
+      border-radius: 20px;
+      border: 2px solid rgba(0, 85, 137, 0.1); /* Soft Blue encompass */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      position: relative;
+    }
+
+    /* Accent bar for the cards */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 30px;
+      width: 40px;
+      height: 4px;
+      background: var(--bravo-blue);
+      border-radius: 0 0 4px 4px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: var(--bravo-blue);
+    }
+
+    ol { margin: 20px 0 0 0; padding-left: 20px; }
+    li { 
+        margin-bottom: 12px; 
+        font-size: 1.05rem; 
+        color: var(--text-main);
+        line-height: 1.5;
+    }
+    li strong { color: var(--bravo-blue); }
+    li a { color: var(--magenta); text-decoration: none; }
+
+    /* Buttons */
+    .cta-row { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-primary { background: var(--bravo-blue); color: white; }
+    .btn-outline { border: 2px solid var(--bravo-blue); color: var(--bravo-blue); }
+
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+    /* Visual Preview Side */
+    .window-side { 
+        flex: 0.8; 
+        position: sticky; 
+        top: 60px;
+        display: flex; 
+        justify-content: center; 
+    }
+
+    .phone-window {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 9/18.5;
+      background: #000;
+      border-radius: 44px;
+      border: 10px solid #222;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-screen {
+      flex: 1;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      margin-bottom: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* CENTERED FOOTER */
+    .footer {
+      background-color: var(--bg-soft);
+      padding: 60px 20px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .footer-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* MOBILE OPTIMIZATIONS */
+    @media (max-width: 900px) {
+      .container { 
+        flex-direction: column; 
+        padding: 40px 24px; 
+        text-align: center;
+        align-items: center;
+      }
+      
+      .brand-header { justify-content: center; }
+      
+      .window-side { 
+        position: static;
+        order: 2; 
+        margin-top: 40px;
+      }
+
+      h1 { font-size: 2.2rem; }
+      
+      .cta-row { 
+        flex-direction: column; 
+        width: 100%;
+      }
+      
+      .btn { width: 100%; box-sizing: border-box; }
+
+      .card { text-align: left; width: 100%; box-sizing: border-box; }
+      .card::before { left: 50%; transform: translateX(-50%); }
+    }
   </style>
 </head>
 <body>
-  <main class="wrap center">
-    <header class="top">
-      <div class="brand">
-        <img class="brandmark" src="/assets/brandmark.png" alt="MyAirportMap" />
-        <div class="brandtext">
-          <div class="brandname">MyAirportMap</div>
-          <div class="tagline">Open & Install</div>
+
+  <div class="container">
+    <main class="content-side">
+      <a href="/" class="brand-header">
+        <img src="../assets/brandmark.png" alt="MyAirportMap" class="brand-logo">
+        <span class="brand-name">MyAirportMap</span>
+      </a>
+
+      <h1>Install on your device.</h1>
+      <p class="lead">Add MyAirportMap to your home screen for a fast, full-screen experience.</p>
+
+      <div class="instruction-group">
+        <div class="card">
+          <h2>Install on iPhone</h2>
+          <ol>
+            <li>Open <strong>app.myairportmap.com</strong> in Safari</li>
+            <li>Tap the <strong>Share</strong> icon 
+               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 2px;">
+                 <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                 <polyline points="16 6 12 2 8 6"></polyline>
+                 <line x1="12" y1="2" x2="12" y2="15"></line>
+               </svg>
+            </li>
+            <li>Scroll down and tap <strong>Add to Home Screen</strong> 
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 2px;">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+            </li>
+            <li>Launch from your home screen icon</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>Install on Android</h2>
+          <ol>
+            <li>Open <strong>app.myairportmap.com</strong> in Chrome</li>
+            <li>Tap the <strong>⋮ menu</strong> in the top right</li>
+            <li>Tap <strong>Install app</strong> or <strong>Add to Home screen</strong></li>
+            <li>Launch from your home screen icon</li>
+          </ol>
         </div>
       </div>
-      <nav class="toplinks">
-        <a class="link" href="/">Home</a>
-      </nav>
-    </header>
 
-    <section class="hero">
-      <h1 id="headline">Open MyAirportMap</h1>
-      <p class="subtext" id="subline">Private by default. Share what you choose.</p>
-
-      <div class="ctaRow">
-        <a class="btn primary" href="https://app.myairportmap.com/app">Open the App</a>
-        <a class="btn" href="https://app.myairportmap.com/sign-in">Log In</a>
-        <a class="btn ghost" href="https://app.myairportmap.com/sign-up">Sign Up</a>
+      <div class="cta-row">
+        <a href="https://app.myairportmap.com/app" class="btn btn-primary">Launch Web App</a>
+        <a href="../index.html" class="btn btn-outline">Back Home</a>
       </div>
+    </main>
 
-      <div class="note" id="hint">On mobile, install for an app icon + full-screen.</div>
-    </section>
+    <aside class="window-side">
+      <div class="phone-window">
+        <div class="phone-screen">
+          <img src="../assets/apple-touch-icon.png" class="app-icon" alt="App Icon">
+          <div style="font-weight:800; color:var(--bravo-blue); font-size: 1.1rem;">MyAirportMap</div>
+          <div style="font-size:0.85rem; color:var(--text-muted); margin-top:8px;">Your logbook story... <br>Visualized.</div>
+        </div>
+      </div>
+    </aside>
+  </div>
 
-    <section class="grid" style="grid-template-columns:1fr; margin-top:12px;">
-      <article class="card" id="iosCard">
-        <h2>Install on iPhone (Safari)</h2>
-        <ol>
-          <li>Tap <strong>Share</strong></li>
-          <li>Tap <strong>Add to Home Screen</strong></li>
-          <li>Launch from your icon</li>
-        </ol>
-      </article>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>MyAirportMap.com is a wholly owned subsidiary of Blue Nexus, LLC.</div>
+      <div>© 2026 MyAirportMap. All rights reserved.</div>
+    </div>
+  </footer>
 
-      <article class="card" id="androidCard">
-        <h2>Install on Android (Chrome)</h2>
-        <ol>
-          <li>Tap the <strong>⋮</strong> menu</li>
-          <li>Tap <strong>Install app</strong> or <strong>Add to Home screen</strong></li>
-          <li>Launch from your icon</li>
-        </ol>
-      </article>
-
-      <article class="card qrOnly" id="desktopQR">
-        <h2>Open on your phone</h2>
-        <p>Scan this to open this page on mobile:</p>
-        <div class="qrBox"><img id="qrImg" alt="QR code to /open" /></div>
-        <div class="small">https://myairportmap.com/open</div>
-      </article>
-    </section>
-
-    <footer class="footer">
-      <a class="small link" href="https://app.myairportmap.com/app">Open App</a>
-      <span class="small">•</span>
-      <a class="small link" href="/">Home</a>
-    </footer>
-  </main>
-
-  <script>
-    (function () {
-      const ua = navigator.userAgent || "";
-      const isAndroid = /Android/i.test(ua);
-      const isIOS = /iPhone|iPad|iPod/i.test(ua);
-      const isMobile = isAndroid || isIOS || /Mobi/i.test(ua);
-
-      const iosCard = document.getElementById("iosCard");
-      const androidCard = document.getElementById("androidCard");
-      const desktopQR = document.getElementById("desktopQR");
-      const hint = document.getElementById("hint");
-
-      if (!isMobile) {
-        // Desktop: show QR prominently, and simplify.
-        iosCard.style.display = "none";
-        androidCard.style.display = "none";
-        desktopQR.style.display = "block";
-        hint.textContent = "Scan the QR to open this install page on your phone.";
-        const img = document.getElementById("qrImg");
-        img.src = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=" + encodeURIComponent("https://myairportmap.com/open");
-      } else {
-        // Mobile: show relevant install card
-        desktopQR.style.display = "none";
-        if (isIOS) androidCard.style.display = "none";
-        if (isAndroid) iosCard.style.display = "none";
-      }
-    })();
-  </script>
 </body>
 </html>
