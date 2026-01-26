@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MyAirportMap | "Where have you flown?"</title>
-  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" sizes="any">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <title>MyAirportMap | Your Logbook Story</title>
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
+  
   <meta name="theme-color" content="#005589">
   <style>
     :root {
@@ -19,7 +21,7 @@
     }
 
     body {
-      margin: 35px;
+      margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--white);
       color: var(--text-main);
@@ -28,7 +30,7 @@
       min-height: 100vh;
     }
 
-    /* Main Hero Section */
+    /* Hero Section */
     .hero-container {
       flex: 1;
       display: flex;
@@ -39,9 +41,9 @@
       padding: 60px 40px;
       gap: 80px;
       align-items: center;
+      box-sizing: border-box;
     }
 
-    /* Left Side: The Window */
     .window-side {
       flex: 0.8;
       display: flex;
@@ -49,7 +51,7 @@
     }
 
     .image-window {
-      width: 90%;
+      width: 100%;
       max-width: 380px;
       aspect-ratio: 3/4;
       background: #fff;
@@ -70,7 +72,6 @@
       transition: opacity 1.2s ease-in-out;
     }
 
-    /* Right Side: Content & Pricing */
     .content-side {
       flex: 1.2;
     }
@@ -96,8 +97,8 @@
       font-size: 3rem;
       line-height: 1.1;
       color: var(--bravo-blue);
-      margin: 0 0 18px 0;
-      font-weight: 700;
+      margin: 0 0 20px 0;
+      font-weight: 800;
       letter-spacing: -0.03em;
     }
 
@@ -108,16 +109,16 @@
       max-width: 480px;
     }
 
-    /* Pricing Section */
+    /* ENCOMPASSING PROMO BOX */
     .pricing-box {
       background: var(--bg-soft);
-      border-radius: 12px;
-      padding: 16px 20px;
+      border-radius: 16px; /* Smoother corners */
+      padding: 24px;
       margin-bottom: 32px;
       display: inline-flex;
       flex-direction: column;
-      border-left: 4px solid var(--magenta);
-      border-right: 4px solid var(--magenta);	
+      border: 2px solid rgba(226, 0, 116, 0.2); /* Soft Magenta encompass */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Added depth */
     }
 
     .price-main {
@@ -129,9 +130,10 @@
     .price-sub {
       font-size: 0.85rem;
       color: var(--text-muted);
+      margin-top: 4px;
     }
 
-    /* Button Layout */
+    /* Buttons */
     .cta-row {
       display: flex;
       gap: 12px;
@@ -158,26 +160,21 @@
       transform: translateY(-2px);
     }
 
-    /* Footer Styles */
+    /* CENTERED FOOTER */
     .footer {
       background-color: var(--bg-soft);
-      padding: 40px 20px;
+      padding: 60px 20px;
       border-top: 1px solid #eee;
+      text-align: center; /* Centering text content */
     }
 
     .footer-inner {
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-
-    .footer-brand {
-      flex: 1;
-      min-width: 250px;
+      flex-direction: column; /* Stacking elements vertically */
+      align-items: center;
+      gap: 24px;
     }
 
     .subsidiary {
@@ -190,91 +187,116 @@
     .footer-muted {
       font-size: 0.85rem;
       color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    .footer-contact {
-      flex: 1;
-      min-width: 250px;
-      text-align: right;
+      line-height: 1.6;
     }
 
     .contact-email {
-      display: block;
+      display: inline-block;
       color: var(--magenta);
       font-weight: 600;
       text-decoration: none;
       margin-bottom: 8px;
     }
 
+    /* MOBILE ADJUSTMENTS */
     @media (max-width: 900px) {
-      .hero-container { flex-direction: column; padding: 40px 20px; text-align: center; }
+      .hero-container { 
+        flex-direction: column; 
+        padding: 40px 24px; 
+        text-align: center; 
+        gap: 40px; 
+      }
+      
+      .content-side {
+        order: 1; /* Text first on mobile */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
       .window-side { order: 2; width: 100%; }
       .brand-header { justify-content: center; }
-      .cta-row { justify-content: center; }
-      .image-window { max-width: 500px; margin: 0 auto; }
+      
+      .cta-row { 
+        justify-content: center; 
+        width: 100%;
+        flex-direction: column; 
+      }
+      
+      .btn { width: 100%; box-sizing: border-box; }
+
+      .image-window { max-width: 280px; margin: 0 auto; }
+
       h1 { font-size: 2.2rem; }
-      .footer-inner { flex-direction: column; text-align: center; }
-      .footer-contact { text-align: center; }
+      .lead { margin-left: auto; margin-right: auto; }
+
+      .pricing-box {
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
     }
   </style>
-
-
 </head>
 <body>
 
   <div class="hero-container">
-    <aside class="window-side">
-      <div class="image-window" id="gallery">
-        <img src="assets/gallery-1.jpeg" class="gallery-img" style="opacity:1">
-        <img src="assets/gallery-2.jpg" class="gallery-img" style="opacity:0">
-        <img src="assets/gallery-3.jpeg" class="gallery-img" style="opacity:0">
-        <img src="assets/gallery-4.jpg" class="gallery-img" style="opacity:0">
-	<img src="assets/gallery-5.jpg" class="gallery-img" style="opacity:0">
-	<img src="assets/gallery-6.jpeg" class="gallery-img" style="opacity:0">
-	<img src="assets/gallery-7.jpg" class="gallery-img" style="opacity:0">
-	<img src="assets/gallery-8.jpg" class="gallery-img" style="opacity:0">
-	<img src="assets/gallery-9.jpg" class="gallery-img" style="opacity:0">
-	<img src="assets/gallery-10.jpg" class="gallery-img" style="opacity:0">
-	<img src="assets/gallery-11.jpg" class="gallery-img" style="opacity:0">
-      </div>
-    </aside>
-
     <main class="content-side">
       <a href="/" class="brand-header">
         <img src="assets/brandmark.png" alt="MyAirportMap" class="brand-logo">
         <span class="brand-name">MyAirportMap</span>
       </a>
-	<center>
+
       <h1>Your logbook is an amazing story. <br>Let MyAirportMap chart it.</h1>
       
       <p class="lead">
-        "Where have you flown?" <br>MyAirportMap members can show & tell. <br>Pin your visited airports and unlock geographic achievements.</p>
+        "Where have you flown?" <br>MyAirportMap members can show & tell. <br>Pin your visited airports and unlock geographic achievements.
+      </p>
 
       <div class="pricing-box">
-        <span class="price-main">$12 for the first year. <br>Promo Code: NEWUSER12</span>
+        <span class="price-main">$12 for the first year. Promo Code: NEWUSER12</span>
         <span class="price-sub">$22 each year after.</span>
       </div>
 
       <div class="cta-row">
         <a href="https://app.myairportmap.com/app" class="btn btn-primary">Open App</a>
         <a href="open/index.html" class="btn btn-install">Phone Install</a>
-        <a href="https://app.myairportmap.com/u/myairportmap-demo/map" class="btn btn-outline">Shared Demo Page</a></center>
+        <a href="https://app.myairportmap.com/u/..." class="btn btn-outline">Shared Demo Page</a>
       </div>
     </main>
+
+    <aside class="window-side">
+      <div class="image-window" id="gallery">
+        <img src="assets/gallery-1.jpeg" class="gallery-img" style="opacity:1">
+        <img src="assets/gallery-2.jpg" class="gallery-img" style="opacity:0">
+        <img src="assets/gallery-3.jpeg" class="gallery-img" style="opacity:0">
+        <img src="assets/gallery-4.jpg" class="gallery-img" style="opacity:0">
+        <img src="assets/gallery-5.jpg" class="gallery-img" style="opacity:0">
+        <img src="assets/gallery-6.jpeg" class="gallery-img" style="opacity:0">
+        <img src="assets/gallery-7.jpg" class="gallery-img" style="opacity:0">
+        <img src="assets/gallery-8.jpg" class="gallery-img" style="opacity:0">
+        <img src="assets/gallery-9.jpg" class="gallery-img" style="opacity:0">
+        <img src="assets/gallery-10.jpg" class="gallery-img" style="opacity:0">
+        <img src="assets/gallery-11.jpg" class="gallery-img" style="opacity:0">
+      </div>
+    </aside>
   </div>
 
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="subsidiary">  
-		<div class="footer-muted"><center>
-		MyAirportMap.com is a wholly owned subsidiary of Blue Nexus, LLC.
-                © 2026 MyAirportMap. All rights reserved.<br>
+        <div class="subsidiary">MyAirportMap.com is a wholly owned subsidiary of Blue Nexus, LLC.</div>
+        <div class="footer-muted">
+          © 2026 MyAirportMap. All rights reserved.<br>
           Your information remains private by default. Share pages are with membership only.
+        </div>
+      </div>
+      
+      <div class="footer-contact">
         <a href="mailto:contact@bluenexus.us" class="contact-email">contact@bluenexus.us</a>
-             For support, include device and browser details.</center>
-        </div></div>
+        <div class="footer-muted">
+          For support, include device and browser details.
+        </div>
       </div>
     </div>
   </footer>
